@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HelperService } from '../../services/helper.service';
+import { HelperService } from '../services/helper.service';
 
 @Component({
   selector: 'app-austronaut-information',
@@ -7,7 +7,7 @@ import { HelperService } from '../../services/helper.service';
   styleUrls: ['./austronaut-information.component.scss']
 })
 export class AustronautInformationComponent implements OnInit {
-  austronautInfo = {};
+  austronautInfo: any;
   constructor(private helperService: HelperService) {
     this.austronautInfo = this.helperService.getSelectedAstronaut();
   }
