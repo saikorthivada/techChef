@@ -1,0 +1,28 @@
+<div class="container">
+    <div *ngIf="list.length > 0">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of list;">
+            <th>{{item.first_name + item.last_name}}</th>
+            <td>
+              <button class="btn btn-primary" (click)="showDetails(item.id)">View Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary" (click)="changePage(false)" [disabled]="pageNumber <= 1">Previous</button>&nbsp;
+        <button class="btn btn-primary" (click)="changePage(true)">Next</button>
+      </div>
+    </div>
+    <div *ngIf="list.length <= 0">
+      No records found
+      <button class="btn btn-primary" (click)="goToPageOne()">Go to page 1</button>
+    </div>
+  </div>
